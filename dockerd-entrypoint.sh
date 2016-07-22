@@ -7,7 +7,6 @@ if [ "$#" -eq 0 -o "${1:0:1}" = '-' ]; then
 		--host=tcp://0.0.0.0:2375 \
 		--storage-driver=vfs \
         --registry-mirror=https://docker.mirrors.ustc.edu.cn \
-        $DOCKER_OPTS \
 		"$@"
 fi
 
