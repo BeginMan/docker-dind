@@ -18,12 +18,10 @@ RUN set -x \
     && echo 'defaultockremap:165536:65536' >> /etc/subuid \
     && echo 'dockremap:165536:655366' >> /etc/subgid
 
-ENV DIND_COMMIT 3b5fac462d21ca164b3778647420016315289034
-
-RUN wget "https://raw.githubusercontent.com/docker/docker/${DIND_COMMIT}/hack/dind" -O /usr/local/bin/dind \
-    && chmod +x /usr/local/cal/bin/dind
-
+COPY dind /usr/local/bin
 COPY dockerd-entrypoint.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/cal/bin/dind
 
 VOLUME /var/lib/docker
 EXPOSE 2375
