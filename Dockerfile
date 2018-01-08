@@ -1,6 +1,8 @@
 FROM docker:1.11
 
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#runtime-dependencies
+RUN sed -ie 's/dl-cdn.alpinelinux.org/mirror.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
 RUN apk add --no-cache \
         btrfs-progs \
         e2fsprogs \
